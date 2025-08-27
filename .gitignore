@@ -1,0 +1,16 @@
+# Python cache files
+**/__pycache__/
+
+# Environment files
+**/.env
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Chroma / vector database folders (can be rebuilt)
+**/chroma_db/
+**/vectorstore/
+
+# unused files
+chatbot.ipynb
+docs_image/
