@@ -5,20 +5,20 @@ An intelligent chatbot designed to answer frequently asked questions about Nawat
 
 ## 📑 Table of Contents
   <ol>
-    <li><a href="#🔎-introduction">Introduction</a></li>
-    <li><a href="#🎥-demo">Demo</a></li>
-    <li><a href="#✨-features">Features</a></li>
-    <li><a href="#📂-dataset">Dataset</a></li>
-    <li><a href="#🧠-model-approach">Model / Approach</a></li>
-    <li><a href="#⚙️-installation-setup">Installation / Setup</a></li>
-    <li><a href="#🚀-usage">Usage</a></li>
-    <li><a href="#📊-results">Results</a></li>
-    <li><a href="#📂-project-structure">Project Structure</a></li>
-    <li><a href="#🙏-acknowledgments">Acknowledgments</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#dataset">Dataset</a></li>
+    <li><a href="#model-approach">Model / Approach</a></li>
+    <li><a href="#installation-setup">Installation / Setup</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 
 
-## 🔎 Introduction
+## Introduction
 Accessing accurate information quickly is essential, especially when users have many questions about a service or product. A key challenge is providing fast and consistent answers to **frequently asked questions (FAQs)**.
 
 This project introduces an **intelligent FAQ chatbot** that delivers context-aware responses through natural conversations, helping users find information quickly and interactively.
@@ -26,7 +26,7 @@ This project introduces an **intelligent FAQ chatbot** that delivers context-awa
 By automating FAQ responses, the chatbot improves user experience, reduces manual support efforts, and ensures information is always available on demand.
 
 
-## 🎥 Demo
+## Demo
 <img src="demo.gif" width="500">  
 
 *(Example: Chatbot running on a Streamlit web app)*
@@ -34,7 +34,7 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 
 
-## ✨ Features
+## Features
 - Provides **instant answers** to user queries in real-time.  
 - Trained on an **FAQ and domain-specific dataset** for high accuracy.  
 - Supports **context-aware conversations** using embeddings.  
@@ -44,13 +44,13 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 
 
-## 📂 Dataset
+## Dataset
 - Source: [FAQ NawaTech](FAQ_Nawa.xlsx)  
 - Format: Excel file with Question and Answer pairs.  
 
 
 
-## 🧠 Method
+## Method
 - **Type**: Retrieval-Augmented Generation (RAG) Chatbot.  
 - **Components**:  
   - **Embeddings**: ChromaDB with SentenceTransformer (`all-MiniLM-L6-v2`).  
@@ -65,7 +65,7 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 
 
-## ⚙️ Installation / Setup
+## Installation / Setup
 
 ### Prerequisites
 
@@ -89,7 +89,7 @@ docker run -p 8501:8501 --env-file .env chatbot
 ```
 
 
-## 🚀 Usage
+## Usage
 
 ### Run the chatbot locally
 
@@ -105,7 +105,7 @@ Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 ```
 
 
-## 📊 Results
+## Results
 
 * Achieved **95% accuracy** in understanding user intents.
 * Generates **context-aware responses** using **RAG (Retrieval-Augmented Generation)**.
@@ -114,7 +114,7 @@ Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 
 
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── app/                        # Source code for the chatbot
@@ -134,7 +134,7 @@ Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 
 ```
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 * Dataset and project resources provided by [Nawatech](https://www.nawatech.co/).
 * Thanks to **Groq** for providing a **fast and free API**, used with **LangChain** for context-aware responses.
