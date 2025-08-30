@@ -2,21 +2,21 @@
 
 An intelligent chatbot designed to answer frequently asked questions about Nawatech, making it easy for people to find information quickly in an interactive way.
 
----
 
 ## 📑 Table of Contents
-1. [Introduction](#introduction)
-2. [Demo](#demo)
-3. [Features](#features)
-4. [Dataset](#dataset)
-5. [Model / Approach](#model--approach)
-6. [Installation / Setup](#installation--setup)
-7. [Usage](#usage)
-8. [Results](#results)
-9. [Project Structure](#project-structure)
-10. [Acknowledgments](#acknowledgments)
+  <ol>
+    <li><a href="#🔎-introduction">Introduction</a></li>
+    <li><a href="#🎥-demo">Demo</a></li>
+    <li><a href="#✨-features">Features</a></li>
+    <li><a href="#📂-dataset">Dataset</a></li>
+    <li><a href="#🧠-model-approach">Model / Approach</a></li>
+    <li><a href="#⚙️-installation-setup">Installation / Setup</a></li>
+    <li><a href="#🚀-usage">Usage</a></li>
+    <li><a href="#📊-results">Results</a></li>
+    <li><a href="#📂-project-structure">Project Structure</a></li>
+    <li><a href="#🙏-acknowledgments">Acknowledgments</a></li>
+  </ol>
 
----
 
 ## 🔎 Introduction
 Accessing accurate information quickly is essential, especially when users have many questions about a service or product. A key challenge is providing fast and consistent answers to **frequently asked questions (FAQs)**.
@@ -25,11 +25,12 @@ This project introduces an **intelligent FAQ chatbot** that delivers context-awa
 
 By automating FAQ responses, the chatbot improves user experience, reduces manual support efforts, and ensures information is always available on demand.
 
----
 
 ## 🎥 Demo
-<img src="assets/demo.gif" width="500">  
-*(Example: Model running on a Streamlit web app)*
+<img src="demo.gif" width="500">  
+
+*(Example: Chatbot running on a Streamlit web app)*
+
 
 
 
@@ -44,12 +45,12 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 
 ## 📂 Dataset
-- Source: [FAQ NawaTech](resource/FAQ_Nawa.xlsx)  
+- Source: [FAQ NawaTech](FAQ_Nawa.xlsx)  
 - Format: Excel file with Question and Answer pairs.  
 
 
 
-## 🧠 Model / Approach
+## 🧠 Method
 - **Type**: Retrieval-Augmented Generation (RAG) Chatbot.  
 - **Components**:  
   - **Embeddings**: ChromaDB with SentenceTransformer (`all-MiniLM-L6-v2`).  
@@ -68,7 +69,7 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 ### Prerequisites
 
-* Python >= 3.8
+* Python 3.10 or 3.11
 * [Groq API Key](https://console.groq.com/home) (for running LLaMA)
 * Docker (optional, for containerized deployment)
 
@@ -76,25 +77,23 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 ```bash
 git clone https://github.com/username/nawa-chatbot.git
-cd nawa-chatbot
+cd nawa-chatbot/app
 pip install -r requirements.txt
 ```
 
 If you use **Docker**:
 
 ```bash
-docker build -t chatbot -f app\Dockerfile .
+docker build -t chatbot .
 docker run -p 8501:8501 --env-file .env chatbot
 ```
 
----
 
 ## 🚀 Usage
 
 ### Run the chatbot locally
 
 ```bash
-cd app
 streamlit run main.py
 ```
 
@@ -104,8 +103,6 @@ streamlit run main.py
 User: Kamu siapa?  
 Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 ```
-
----
 
 
 ## 📊 Results
