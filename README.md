@@ -27,7 +27,7 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 
 ## Demo
-<img src="demo.gif" width="500">  
+<img src="demo.gif" width="800">  
 
 *(Example: Chatbot running on a Streamlit web app)*
 
