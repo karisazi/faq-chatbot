@@ -4,3 +4,4 @@ python-dotenv
 chromadb
 openpyxl
 streamlit
+sentence-transformers
