@@ -28,6 +28,7 @@ class FAQLoader:
         file_path = os.path.join(app_root, resource_dir, filename)
 
         if not os.path.exists(file_path):
+            print("DEBUG: looking for file at", file_path)
             raise FileNotFoundError(f"FAQ file not found at: {file_path}")
         
         self.file_path = file_path
