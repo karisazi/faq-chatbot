@@ -23,9 +23,8 @@ class FAQLoader:
         Initialize FAQLoader with filename, ChromaDB collection, and persistence directory.
         """
         # Build path relative to repo root
-        root_dir = os.path.dirname(os.path.abspath(__file__))
-        repo_root = os.path.dirname(root_dir)
-        file_path = os.path.join(repo_root, resource_dir, filename)
+        app_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(app_dir, resource_dir, filename)
 
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"FAQ file not found at: {file_path}")
