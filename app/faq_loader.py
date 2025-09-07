@@ -1,3 +1,4 @@
+import os
 import uuid
 import pandas as pd
 import chromadb
@@ -13,11 +14,22 @@ class FAQLoader:
     Handles loading FAQs from an Excel file into ChromaDB and
     querying answers based on user questions.
     """
+    def __init__(self, 
+                 filename="FAQ_Nawa.xlsx", 
+                 resource_dir="resource", 
+                 collection_name="faq_nawa", 
+                 persist_dir="vectorstore"):
+        """
+        Initialize FAQLoader with filename, ChromaDB collection, and persistence directory.
+        """
+        # Build path relative to repo root
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        repo_root = os.path.dirname(root_dir)
+        file_path = os.path.join(repo_root, resource_dir, filename)
 
-    def __init__(self, file_path="resource/FAQ_Nawa.xlsx", collection_name="faq_nawa", persist_dir="vectorstore"):
-        """
-        Initialize FAQLoader with file path, ChromaDB collection, and persistence directory.
-        """
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"FAQ file not found at: {file_path}")
+        
         self.file_path = file_path
         self.data = pd.read_excel(file_path)
 
