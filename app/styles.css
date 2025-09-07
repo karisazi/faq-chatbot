@@ -1,0 +1,48 @@
+div[data-testid="stChatInputContainer"] {
+    background-color: #000;
+    border-top: 1px solid #333;
+}
+div[data-testid="stChatInputContainer"] textarea {
+    background-color: #1E1E1E;
+    color: #FFF;
+    border: 1px solid #FF6600;
+    border-radius: 10px;
+}
+.title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFF;
+}
+.subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #EAEAEA;
+}
+.subtitle a {
+    color: #FF6600;
+    text-decoration: none;
+    font-size: 18px;
+}
+.user-msg {
+    background-color: #FF6600;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: right;
+    float: right;
+    clear: both;
+    max-width: 70%;
+}
+.bot-msg {
+    background-color: #1E1E1E;
+    color: #EAEAEA;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: left;
+    float: left;
+    clear: both;
+    max-width: 70%;
+}
