@@ -1,3 +1,14 @@
+---
+title: "FAQ Chatbot"
+emoji: "🤖"
+colorFrom: "green"
+colorTo: "blue"
+sdk: "streamlit"
+sdk_version: "1.48.1"
+app_file: "app/main.py"
+pinned: false
+---
+
 # 🤖 FAQ Chatbot
 
 An intelligent chatbot designed to answer frequently asked questions about Nawatech, making it easy for people to find information quickly in an interactive way.
