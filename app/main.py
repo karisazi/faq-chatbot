@@ -1,11 +1,13 @@
 import streamlit as st
+import os
 from chains import FAQChain
 from faq_loader import FAQLoader
 from utils import validate_query, clean_query
 
-def load_css(file_path: str):
-    """Load external CSS file into Streamlit app."""
-    with open(file_path) as f:
+def load_css(file_name: str):
+    """Load external CSS file into Streamlit app (relative to this script)."""
+    css_path = os.path.join(os.path.dirname(__file__), file_name)
+    with open(css_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Streamlit page configuration
