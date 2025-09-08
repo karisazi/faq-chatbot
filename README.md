@@ -88,7 +88,7 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 ```bash
 git clone https://github.com/username/nawa-chatbot.git
-cd nawa-chatbot/app
+cd nawa-chatbot
 pip install -r requirements.txt
 ```
 
@@ -105,7 +105,7 @@ docker run -p 8501:8501 --env-file .env chatbot
 ### Run the chatbot locally
 
 ```bash
-streamlit run main.py
+streamlit run app/main.py
 ```
 
 ### Example Interaction
