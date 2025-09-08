@@ -3,13 +3,16 @@ name: Deploy to Hugging Face Space
 on:
   push:
     branches:
-      - main   # jalan setiap kali ada push ke main
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
 
       - name: Set up Git
         run: |
@@ -20,6 +23,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git remote remove space || true
+          git remote set-url space https://karisazi:$HF_TOKEN@huggingface.co/spaces/karisazi/faq-chatbot || \
           git remote add space https://karisazi:$HF_TOKEN@huggingface.co/spaces/karisazi/faq-chatbot
           git push --force space main
+
