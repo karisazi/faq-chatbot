@@ -15,9 +15,9 @@ class FAQLoader:
     querying answers based on user questions.
     """
     def __init__(self, 
-                 filename="FAQ_Nawa.xlsx", 
+                 filename="medquad.csv", 
                  resource_dir="resource", 
-                 collection_name="faq_nawa", 
+                 collection_name="faq_chatbot", 
                  persist_dir="vectorstore"):
         """
         Initialize FAQLoader with filename, ChromaDB collection, and persistence directory.
@@ -31,8 +31,17 @@ class FAQLoader:
             raise FileNotFoundError(f"FAQ file not found at: {file_path}")
         
         self.file_path = file_path
-        self.data = pd.read_excel(file_path)
-
+        # check file extension
+        ext = os.path.splitext(file_path)[1].lower()  
+        if ext == ".xlsx":
+            self.data = pd.read_excel(file_path, nrows=100)
+        elif ext == ".csv":
+            self.data = pd.read_csv(file_path, nrows=100)
+        else:
+            raise ValueError(f"Unsupported file extension: {ext}")
+        
+        os.makedirs(persist_dir, exist_ok=True)
+        
         self.chroma_client = chromadb.PersistentClient(persist_dir)
         self.collection = self.chroma_client.get_or_create_collection(
             name=collection_name,
@@ -45,7 +54,7 @@ class FAQLoader:
         """
         if self.collection.count() == 0:
             for _, row in self.data.iterrows():
-                question, answer = str(row["Question"]), str(row["Answer"])
+                question, answer = str(row.iloc[0]), str(row.iloc[1]) 
                 self.collection.add(
                     documents=[question],
                     metadatas=[{"answer": answer}],

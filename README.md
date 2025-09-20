@@ -11,7 +11,7 @@ pinned: false
 
 # 🤖 FAQ Chatbot
 
-An intelligent chatbot designed to answer frequently asked questions about Nawatech, making it easy for people to find information quickly in an interactive way.
+An intelligent chatbot designed to answer frequently asked questions about Medical, making it easy for people to find information quickly in an interactive way.
 
 
 ## 📑 Table of Contents
@@ -56,8 +56,8 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 
 ## Dataset
-- Source: [FAQ NawaTech](FAQ_Nawa.xlsx)  
-- Format: Excel file with Question and Answer pairs.  
+- Source: [FAQ on Medical Diseases](https://www.kaggle.com/datasets/jpmiller/layoutlm?resource=download)  
+- Format: File with Question and Answer pairs (Excel or CSV).
 
 
 
@@ -87,8 +87,8 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 ### Steps
 
 ```bash
-git clone https://github.com/username/nawa-chatbot.git
-cd nawa-chatbot
+git clone https://github.com/username/faq-chatbot.git
+cd faq-chatbot
 pip install -r requirements.txt
 ```
 
@@ -130,7 +130,7 @@ Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 ```
 ├── app/                        # Source code for the chatbot
 │   ├── .streamlit/config.py     # Streamlit configuration
-│   ├── resources/FAQ_Nawa.xlsx  # Dataset
+│   ├── resources/medquad.csv    # Dataset
 │   ├── Dockerfile               # Docker setup
 │   ├── chains.py                # Logic for RAG/response chains
 │   ├── faq_loader.py            # Loads and processes FAQ dataset
@@ -138,7 +138,7 @@ Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 │   ├── requirements.txt         # App-specific dependencies
 │   ├── styles.css               # Custom CSS for the app
 │   └── utils.py                 # Helper functions
-├── FAQ_Nawa.xlsx                # Dataset for FAQs
+├── medquad.csv                  # Dataset for FAQs
 ├── chatbot_optimization.ipynb   # Notebook showing improvements (accuracy, exception handling, security)
 ├── requirements.txt             # Global dependencies
 └── README.md                    # Project documentation
@@ -147,7 +147,7 @@ Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 
 ## Acknowledgments
 
-* Dataset and project resources provided by [Nawatech](https://www.nawatech.co/).
+* Developed using [Groq](https://groq.com/).
 * Thanks to **Groq** for providing a **fast and free API**, used with **LangChain** for context-aware responses.
 
 

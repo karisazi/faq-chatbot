@@ -1,6 +1,6 @@
 [theme]
 base = "dark"
-primaryColor = "#ff6600"
-backgroundColor = "#000000"
-secondaryBackgroundColor = "#111111"
-textColor = "#ffffff"
+primaryColor = "#2196F3"          # professional medical blue
+backgroundColor = "#0D1117"       # subtle dark gray (GitHub dark style)
+secondaryBackgroundColor = "#161B22"
+textColor = "#F5F5F5"             # soft white, not pure #fff

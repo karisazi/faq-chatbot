@@ -14,3 +14,8 @@
 # unused files
 chatbot.ipynb
 docs_image/
+
+# big files
+medquad.csv
+resources/*.csv
+resources/*.xlsx
