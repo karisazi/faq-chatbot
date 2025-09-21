@@ -42,6 +42,9 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 *(Example: Chatbot running on a Streamlit web app)*
 
+⚠️ Note: For prototyping purposes and faster processing, this chatbot demo only uses the first 100 rows of the dataset. Therefore, the information is limited to the following topics: **Glaucoma, High Blood Pressure, Paget's Disease of Bone, Urinary Tract Infections, Alcohol Use and Older Adults, Osteoarthritis, Problems with Taste, and Anxiety Disorders.**
+
+
 
 
 
