@@ -93,11 +93,13 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 git clone https://github.com/username/faq-chatbot.git
 cd faq-chatbot
 pip install -r requirements.txt
+cd app/resources   # add your own dataset (Excel or CSV) here
 ```
 
 If you use **Docker**:
 
 ```bash
+cd faq-chatbot
 docker build -t chatbot .
 docker run -p 8501:8501 --env-file .env chatbot
 ```
