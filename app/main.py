@@ -12,7 +12,7 @@ def load_css(file_name: str):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Streamlit page configuration
-st.set_page_config(page_title="Chatbot FAQ Medic - Medical Questions", layout="centered")
+st.set_page_config(page_title="AXA Insurance FAQ Chatbot", layout="centered")
 
 # Load external CSS
 load_css("styles.css")
@@ -23,23 +23,38 @@ def create_streamlit_app(llm, faq, validate_query, clean_query):
     Shows user text immediately, then bot replies after a short delay.
     """
     # Title + subtitle
-    st.markdown("<div class='title'>🤖 Chatbot FAQ Medical</div>", unsafe_allow_html=True)
+    st.markdown("<div class='title'>🤖 AXA Insurance FAQ Assistant</div>", unsafe_allow_html=True)
     st.markdown(
-        "<div class='subtitle'>Powered by <a href='https://groq.com/' target='_blank'>Groq</a></div>",
+        "<div class='subtitle'>Powered by <a href='https://ai.google.dev/' target='_blank'>Google Gemini</a></div>",
         unsafe_allow_html=True
     )
 
-    # Init chat history
+    # Init chat history with initial greeting
     if "messages" not in st.session_state:
-        st.session_state.messages = []
+        st.session_state.messages = [
+            {
+                "role": "bot", 
+                "content": "Selamat datang di Asisten AXA! 👋\n\nSaya adalah asisten virtual yang siap membantu Anda dengan informasi seputar:\n• Pembayaran premi\n• Pengajuan klaim\n• Informasi polis\n• Produk asuransi AXA\n\nSilakan tanyakan apa saja yang ingin Anda ketahui. Saya akan dengan senang hati membantu Anda! 😊"
+            }
+        ]
 
     # Display chat history
     for msg in st.session_state.messages:
         css_class = "user-msg" if msg["role"] == "user" else "bot-msg"
         st.markdown(f"<div class='{css_class}'>{msg['content']}</div>", unsafe_allow_html=True)
 
+    # Clear chat button
+    if st.button("🗑️ Hapus Percakapan", help="Klik untuk memulai percakapan baru"):
+        st.session_state.messages = [
+            {
+                "role": "bot", 
+                "content": "Selamat datang di Asisten AXA! 👋\n\nSaya adalah asisten virtual yang siap membantu Anda dengan informasi seputar:\n• Pembayaran premi\n• Pengajuan klaim\n• Informasi polis\n• Produk asuransi AXA\n\nSilakan tanyakan apa saja yang ingin Anda ketahui. Saya akan dengan senang hati membantu Anda! 😊"
+            }
+        ]
+        st.rerun()
+
     # Chat input
-    user_input = st.chat_input("Type your message...")
+    user_input = st.chat_input("Ketik pesan Anda...")
     if user_input:
         # Show user message immediately
         st.session_state.messages.append({"role": "user", "content": user_input})
@@ -75,8 +90,8 @@ def create_streamlit_app(llm, faq, validate_query, clean_query):
             # Simulate "typing delay"
             time.sleep(1.5)
 
-            # Generate final answer
-            bot_answer = llm.generate_answer(cleaned_query, faq_context)
+            # Generate final answer with chat history
+            bot_answer = llm.generate_answer(cleaned_query, faq_context, st.session_state.messages)
 
             # Replace "thinking..." with real answer
             st.session_state.messages[-1] = {"role": "bot", "content": bot_answer}

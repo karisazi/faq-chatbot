@@ -29,14 +29,14 @@ def validate_query(query: str) -> str:
 
 def clean_query(text):
     """
-    Normalize and clean user input text.
+    Normalize and clean user input text for Indonesian language.
 
     Steps:
     1. Convert to lowercase
     2. Trim leading and trailing spaces
     3. Replace multiple spaces with a single space
     4. Normalize repeated punctuation marks (e.g., '!!!' -> '!')
-    5. Remove non-alphanumeric characters (except space, ., ?, !)
+    5. Remove non-alphanumeric characters (except space, ., ?, !, and Indonesian characters)
 
     :param text: The input string from the user
     :return: A cleaned and normalized string
@@ -45,5 +45,6 @@ def clean_query(text):
     text = text.strip()
     text = re.sub(r"\s+", " ", text)
     text = re.sub(r"([!?])\1+", r"\1", text)
+    # Allow Indonesian characters (a-z, 0-9, space, punctuation, and common Indonesian characters)
     text = re.sub(r"[^a-z0-9\s\.\?\!]", "", text)
     return text
