@@ -9,9 +9,9 @@ app_file: "app/main.py"
 pinned: false
 ---
 
-# 🤖 FAQ Chatbot
+# 🤖 AXA Insurance FAQ Chatbot
 
-An intelligent chatbot designed to answer frequently asked questions about Medical, making it easy for people to find information quickly in an interactive way.
+An intelligent chatbot designed to answer frequently asked questions about AXA Insurance services, making it easy for customers to find information about premium payments, claims, policy information, and insurance products quickly in an interactive way.
 
 
 ## 📑 Table of Contents
@@ -42,7 +42,7 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 *(Example: Chatbot running on a Streamlit web app)*
 
-⚠️ Note: For prototyping purposes and faster processing, this chatbot demo only uses the first 100 rows of the dataset. Therefore, the information is limited to the following topics: **Glaucoma, High Blood Pressure, Paget's Disease of Bone, Urinary Tract Infections, Alcohol Use and Older Adults, Osteoarthritis, Problems with Taste, and Anxiety Disorders.**
+⚠️ Note: This chatbot is specifically designed for AXA Insurance Indonesia and covers topics including: **Premium Payments, Claims Submission, Policy Information, and Insurance Product FAQs** for both PT AXA Financial Indonesia and PT AXA Insurance Indonesia.
 
 
 
@@ -59,8 +59,9 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 
 
 ## Dataset
-- Source: [FAQ on Medical Diseases](https://www.kaggle.com/datasets/jpmiller/layoutlm?resource=download)  
-- Format: File with Question and Answer pairs (Excel or CSV).
+- Source: AXA Insurance Indonesia FAQ Dataset  
+- Format: CSV file with Question and Answer pairs covering insurance topics
+- Topics: Premium payments, claims submission, policy information, insurance products
 
 
 
@@ -68,7 +69,7 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 - **Type**: Retrieval-Augmented Generation (RAG) Chatbot.  
 - **Components**:  
   - **Embeddings**: ChromaDB with SentenceTransformer (`all-MiniLM-L6-v2`).  
-  - **LLM**: LLaMA via LangChain + Groq for fast inference.  
+  - **LLM**: Google Gemini via LangChain for intelligent responses.  
   - **Retriever**: Semantic similarity search (`top_k=2`).  
 - **Techniques**:  
   - Exception handling, input validation, and security measures.  
@@ -84,7 +85,7 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 ### Prerequisites
 
 * Python 3.10 or 3.11
-* [Groq API Key](https://console.groq.com/home) (for running LLaMA)
+* [Google Gemini API Key](https://ai.google.dev/) (for running Gemini)
 * Docker (optional, for containerized deployment)
 
 ### Steps
@@ -93,7 +94,10 @@ By automating FAQ responses, the chatbot improves user experience, reduces manua
 git clone https://github.com/username/faq-chatbot.git
 cd faq-chatbot
 pip install -r requirements.txt
-cd app/resources   # add your own dataset (Excel or CSV) here
+
+# Create .env file with your Gemini API key
+echo "GEMINI_API_KEY=your_api_key_here" > .env
+echo "GEMINI_MODEL_NAME=gemini-1.5-flash" >> .env
 ```
 
 If you use **Docker**:
@@ -116,8 +120,15 @@ streamlit run app/main.py
 ### Example Interaction
 
 ```
-User: Kamu siapa?  
-Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
+User: Bagaimana cara membayar premi AXA?  
+Bot: Pembayaran premi dapat dilakukan melalui beberapa metode:
+- Autodebet dari kartu kredit (untuk jalur Telemarketing & e-Commerce)
+- Autodebet rekening bank (untuk jalur Agency)
+- Virtual Account
+- Transfer ke rekening Bank Mandiri
+
+User: Kapan bisa mengajukan klaim?  
+Bot: Nasabah bisa mengajukan klaim untuk penyakit yang baru diderita setelah melewati masa tunggu 30 hari sejak tanggal efektif polis. Untuk kecelakaan tidak berlaku masa tunggu.
 ```
 
 
@@ -134,16 +145,15 @@ Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 
 ```
 ├── app/                        # Source code for the chatbot
-│   ├── .streamlit/config.py     # Streamlit configuration
-│   ├── resources/medquad.csv    # Dataset
+│   ├── AXA_QNA.csv             # AXA Insurance FAQ Dataset
 │   ├── Dockerfile               # Docker setup
-│   ├── chains.py                # Logic for RAG/response chains
+│   ├── chains.py                # Logic for RAG/response chains (Gemini integration)
 │   ├── faq_loader.py            # Loads and processes FAQ dataset
 │   ├── main.py                  # Entry point for the Streamlit app
 │   ├── requirements.txt         # App-specific dependencies
 │   ├── styles.css               # Custom CSS for the app
 │   └── utils.py                 # Helper functions
-├── medquad.csv                  # Dataset for FAQs
+├── test_integration.py          # Integration test script
 ├── chatbot_optimization.ipynb   # Notebook showing improvements (accuracy, exception handling, security)
 ├── requirements.txt             # Global dependencies
 └── README.md                    # Project documentation
@@ -152,7 +162,8 @@ Bot: Kami adalah kumpulan talenta yang bersemangat yang ...
 
 ## Acknowledgments
 
-* Developed using [Groq](https://groq.com/).
-* Thanks to **Groq** for providing a **fast and free API**, used with **LangChain** for context-aware responses.
+* Developed using [Google Gemini](https://ai.google.dev/).
+* Thanks to **Google** for providing the **Gemini API**, used with **LangChain** for context-aware responses.
+* Special thanks to **AXA Insurance Indonesia** for providing the comprehensive FAQ dataset.
 
 
